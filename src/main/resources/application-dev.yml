@@ -1,0 +1,15 @@
+server:
+  port: 8761
+
+ead:
+  serviceRegistry:
+    username: serviceregistry
+    password: 'ead123sr'
+
+# Config abaixo é para que o server não se autoregistre e não busque por registro no eureka
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka'
